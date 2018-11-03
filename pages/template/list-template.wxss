@@ -1,0 +1,10 @@
+/* pages/template/list-template.wxss */
+.tmpContainer {
+  display: flex;
+  margin: 0 10rpx;
+}
+.tmpContainer image{
+  display: block;
+  width: 30rpx;
+  height:30rpx;
+}

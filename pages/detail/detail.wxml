@@ -1,0 +1,61 @@
+<!--pages/detail/detail.wxml-->
+<import src='/pages/template/list-template.wxml' />
+<view class='detailContainer' wx:if="{{datailObj.title}}">
+  <view class='movie-title'>
+    <text>{{datailObj.title}}</text>
+  </view>
+  <view class='movie-info'>
+    <image src='{{datailObj.images.small}}'>
+    </image>
+    <view class='movie-list'>
+
+      <text>评分:<text  class='ratings'> {{datailObj.rating.average}}</text></text>
+      <text>导演：{{datailObj.writers[0].name}} </text>
+      <text>主演：{{datailObj.casts[0].name}}/{{datailObj.casts[1].name}}/{{datailObj.casts[2].name}}</text>
+      <text>类型：{{datailObj.genres}}</text>
+      <text>制片国家/地区：{{datailObj.countries}}</text>
+      <text>上映日期：{{datailObj.pubdates}} </text>
+      <text>片长:{{datailObj.durations}}</text>
+    </view>
+  </view>
+
+
+  <view class='collection_share_container'>
+    <view class='collection_share'>
+      <image wx:if="{{!isCollected}}" catchtap='handleCollection' src='/images/icon/collection-anti.png'></image>
+      <image wx:if="{{isCollected}}" catchtap='handleCollection' src='/images/icon/collection.png'></image>
+      <image catchtap='handleShare' src='/images/icon/share.png'></image>
+    </view>
+    <view class='line'></view>
+  </view>
+  <view class='content-title'>
+    <text>简介</text>
+    <view class='before'></view>
+  </view>
+  <text class='movie-content'>{{datailObj.summary}}</text>
+  <view class='content-title'>
+    <text>热门短评</text>
+    <view class='before'></view>
+  </view>
+  <view class="comments-container">
+    <view class='coments-box' wx:for="{{datailObj.popular_comments}}" wx:key="{{index}}">
+      <view class="comments-header">
+        <view class='left'>
+          <image class='avatar' src='{{item.author.avatar}}'></image>
+          <text>{{item.author.name}} 看过</text>
+          <template is="ratings" data="{{...item.rating}}"></template>
+
+        </view>
+        <view class='count'>{{item.useful_count}}有用</view>
+      </view>
+
+
+      <view class='comments-content'>
+        {{item.content}}
+      </view>
+      <text class='comments-date'>{{item.created_at}}</text>
+      <view class='hr'></view>
+    </view>
+  </view>
+  <button open-type="share">转发此内容</button>
+</view>

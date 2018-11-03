@@ -1,0 +1,11 @@
+<!-- 微信模板文件 -->
+<template name='ratings'>
+  <!-- 使用name表示模板名称便与引用 -->
+  <view class='tmpContainer'>
+    <image src='/images/icon/star.png' wx:for="{{value}}" wx:key="{{index}}"></image>
+    
+    <image src='/images/icon/none-star.png'
+    wx:for="{{max - value}}" wx:key="{{index}}"
+    ></image>
+  </view>
+</template>

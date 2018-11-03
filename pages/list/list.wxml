@@ -1,0 +1,35 @@
+<!-- 引入模板文件 -->
+<view>
+  <swiper indicator-dots indicator-active-color='#fff' circular interval='2000' autoplay catchtap='carouselToDetail'>
+    <swiper-item>
+      <image data-index='0' src='/images/detail/carousel/01.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-index='1' src='/images/detail/carousel/02.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-index='2' src='/images/detail/carousel/03.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-index='3' src='/images/detail/carousel/04.jpg'></image>
+    </swiper-item>
+  </swiper>
+  <view class="section">
+   
+    <input placeholder="请输入要搜索的内容" confirm-type="search" catchtap='tosearch'/>
+ 
+  </view>
+  <view class='title-block'>
+    <image src='/images/icon/arrow-right.png'></image>
+    <text>正在热映</text>
+  </view>
+  <view class='movie-content'>
+    <view class='movie-box' wx:for="{{newMovies}}" wx:key="index" catchtap='toDetail' data-id="{{item.id}}">
+      <image src='{{item.images.small}}'></image>
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+  <view class='button-box'>
+    <button type='warn' plain catchtap='nextMovie'>更多电影</button>
+  </view>
+</view>

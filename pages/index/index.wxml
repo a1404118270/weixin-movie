@@ -1,0 +1,5 @@
+<!--pages/index/index.wxml-->
+<view class='index-container'>
+  <image src='/images/index/index.jpg'></image>
+  <text class='index-text'>剩余{{time}}秒</text>
+</view>

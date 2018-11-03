@@ -1,0 +1,22 @@
+<!--pages/search/search.wxml-->
+<view class='search-contanier'>
+  <form bindsubmit="formSubmit">
+ <view class='form-box' > 
+ <input name="keyword" placeholder='搜电影' maxlength="10">
+ </input>
+   <button form-type='submit' hover-class="none">搜索</button>
+  </view>
+  </form>
+ <view>
+  <navigator url='/pages/detail/detail?id={{item.id}}' wx:for='{{searchMovies}}'  wx:key='{{index}}'>
+  <view class='moviesContainer'>
+    <image class='movieImg' src='{{item.images.large}}'></image>
+    <view class='movie_detail'>
+      <text class='movie_name'>{{item.title}}</text>
+      <text class='movie_year'>年份：{{item.year}}</text>
+      <text class='movie_director'>导演：{{item.directors[0].name}}</text>
+    </view>
+    <text class='movie_rating'>{{item.rating.average ===9? '9.0':item.rating.average}}</text>
+  </view>
+</navigator></view>
+</view>
